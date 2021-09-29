@@ -6,3 +6,4 @@ POINT(6.7244 3.3792),15,'Farch',15,true,null
 POINT(6.8244 3.3792),15,'Parch',16,true,null
 POINT(6.9244 3.3792),15,'Darch',17,true,null
 POINT(6.1 3.3792),15,'Larch',18,true,null
+POINT(42 87.6298),23,'October',13,false,2015-02-13
