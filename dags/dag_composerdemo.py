@@ -60,14 +60,6 @@ with models.DAG(
         # https://cloud.google.com/dataflow/docs/guides/templates/provided-batch#gcstexttobigquery
         template="gs://dataflow-templates/latest/GCS_Text_to_BigQuery",
         # Use the link above to specify the correct parameters for your template.
-	dataflow_default_options= {
-	    "project":project_id,
-	    "region":gce_region,
-	    "zone":gce_zone,
-	    "tempLocation":bucket_path + "/tmp/",
-	    "network":"projects/bcs-csw-vpc-host/global/networks/csw",
-	    "subnetwork":"https://www.googleapis.com/compute/v1/projects/bcs-csw-vpc-host/regions/us-central1/subnetworks/bcs-global-comm-data-env-dev-dataflow"
-        },
         parameters={
             "javascriptTextTransformFunctionName": "transformCSVtoJSON",
             "JSONPath": bucket_path + "/jsonSchema.json",
