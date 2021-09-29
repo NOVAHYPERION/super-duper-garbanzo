@@ -7,7 +7,7 @@ steps:
   args: ['composer', 'environments', 'run', '${_COMPOSER_ENV_NAME}', '--location', '${_COMPOSER_REGION}', 'trigger_dag', '--', '${_COMPOSER_DAG_NAME}', '--run_id=$BUILD_ID']
   id: 'trigger-pipeline-execution'
 substitutions:
-  _COMPOSER_BUCKET: us-central1-bcs-global-comm-fb7c3617-bucket
+  _COMPOSER_BUCKET: us-central1-data-pipeline-c-23e1016f-bucket
   _DESTINATION_BUCKET: demobuckey
   _COMPOSER_ENV_NAME: data-pipeline-composer
   _COMPOSER_REGION: us-central1
