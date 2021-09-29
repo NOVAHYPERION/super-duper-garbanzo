@@ -8,7 +8,7 @@ steps:
   id: 'trigger-pipeline-execution'
 substitutions:
   _COMPOSER_BUCKET: us-central1-bcs-global-comm-fb7c3617-bucket
-  _DESTINATION_BUCKET: demo_inputfiles
+  _DESTINATION_BUCKET: demobuckey
   _COMPOSER_ENV_NAME: data-pipeline-composer
   _COMPOSER_REGION: us-central1
   _COMPOSER_DAG_NAME: composer_dataflow_dag
