@@ -12,10 +12,6 @@ steps:
 - name: gcr.io/cloud-builders/gcloud
   args: ['composer', 'environments', 'run', '${_COMPOSER_ENV_NAME}', '--location', '${_COMPOSER_REGION}', 'trigger_dag', '--', '${_COMPOSER_DAG_NAME}', '--run_id=$BUILD_ID']
   id: 'trigger-pipeline-execution'
-  substitutions:
-    _COMPOSER_ENV_NAME: bcs-global-comm-data-env-dev-composer
-    _COMPOSER_REGION: us-central1
-    _COMPOSER_DAG_NAME: composer_dataflow_dag
 # - name: gcr.io/google.com/cloudsdktool/cloud-sdk
 #   id: Deploy
 #   entrypoint: bash
