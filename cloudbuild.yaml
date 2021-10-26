@@ -7,8 +7,8 @@ steps:
   args: ['composer', 'environments', 'run', '${_COMPOSER_ENV_NAME}', '--location', '${_COMPOSER_REGION}', 'trigger_dag', '--', '${_COMPOSER_DAG_NAME}', '--run_id=$BUILD_ID']
   id: 'trigger-pipeline-execution'
 substitutions:
-  _COMPOSER_BUCKET: demo_bucket
-  _DESTINATION_BUCKET: demo_bucket
+  _COMPOSER_BUCKET: demo_input
+  _DESTINATION_BUCKET: demo_input
   _COMPOSER_ENV_NAME: data-pipeline-composer
   _COMPOSER_REGION: us-central1
   _COMPOSER_DAG_NAME: composer_dataflow_dag
