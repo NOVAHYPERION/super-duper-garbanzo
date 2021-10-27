@@ -4,8 +4,8 @@ steps:
   entrypoint: bash
   args: [ '-c', 'if [ "$BRANCH_NAME" == "develop" ]; then echo "$BRANCH_NAME" && gsutil -m rsync -d -r ./src gs://${_DESTINATION_BUCKET} && gsutil -m rsync -d -r ./dags gs://${_COMPOSER_BUCKET}/dags; else echo "Working on $BRANCH_NAME"; fi']
 - name: gcr.io/cloud-builders/gcloud
-  args: ['composer', 'environments', 'run', '${_COMPOSER_ENV_NAME}', '--location', '${_COMPOSER_REGION}', 'trigger_dag', '--', '${_COMPOSER_DAG_NAME}', '--run_id=$BUILD_ID']
-  id: 'trigger-pipeline-execution'
+  id: MAKEADAJOBNOW
+  args: ['dataflow', 'jobs', 'run', 'MAKEADAJOB', '--gcs-location', 'gs://dataflow-templates-us-central1/latest/Stream_GCS_Text_to_BigQuery', '--region', 'us-central1', '--staging-location', 'gs://demo_input/tmp/', '--parameters', 'javascriptTextTransformGcsPath=gs://demo_input/transformCSVtoJSON.js,JSONPath=gs://demo_input/jsonSchema.json,javascriptTextTransformFunctionName=transformCSVtoJSON,outputTable=gold-mode-329516:demotDaata.demotime,inputFilePattern=gs://demo_input/inputFile.txt,bigQueryLoadingTemporaryDirectory=gs://demo_input/tmp/']
 substitutions:
   _COMPOSER_BUCKET: demo_input
   _DESTINATION_BUCKET: demo_input
